@@ -12,7 +12,7 @@ permissions:
 
 concurrency:
   group: "pages"
-  cancel-in-progress: true
+  cancel-in-progress: false
 
 jobs:
   build:
@@ -27,7 +27,7 @@ jobs:
       - name: Upload static site
         uses: actions/upload-pages-artifact@v3
         with:
-          path: .   # change this if your HTML is in 'dist' or 'public'
+          path: .   # Change this to your build folder (e.g. 'dist', 'public', etc.)
 
   deploy:
     environment:
@@ -40,3 +40,4 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+
