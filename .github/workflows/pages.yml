@@ -1,20 +1,43 @@
-steps:
-  # 1️⃣ Checkout repository
-  - name: Checkout repository
-    uses: actions/checkout@v4   # latest stable version
+name: Deploy Static HTML to GitHub Pages
 
-  # 2️⃣ Setup GitHub Pages environment
-  - name: Setup Pages
-    uses: actions/configure-pages@v5   # latest stable version
+on:
+  push:
+    branches:
+      - main   # deploy when changes are pushed to main
 
-  # 3️⃣ Upload static site
-  - name: Upload static site
-    uses: actions/upload-pages-artifact@v4   # latest stable version
-    with:
-      path: .   # your HTML files are in the repo root
+permissions:
+  contents: read
+  pages: write
+  id-token: write
 
-  # 4️⃣ Deploy to GitHub Pages
-  - name: Deploy to GitHub Pages
-    id: deployment
-    uses: actions/deploy-pages@v4   # latest stable version
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    steps:
+      # 1️⃣ Checkout repository
+      - name: Checkout repository
+        uses: actions/checkout@v4   # latest stable version
+
+      # 2️⃣ Setup GitHub Pages environment
+      - name: Setup Pages
+        uses: actions/configure-pages@v5   # latest stable version
+
+      # 3️⃣ Upload static site
+      - name: Upload static site
+        uses: actions/upload-pages-artifact@v4   # latest stable version
+        with:
+          path: .   # your HTML files are in the repo root
+
+      # 4️⃣ Deploy to GitHub Pages
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4   # latest stable version
 
