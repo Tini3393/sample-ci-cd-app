@@ -3,7 +3,7 @@ name: Deploy Static HTML to GitHub Pages
 on:
   push:
     branches:
-      - main   # deploy when changes are pushed to main
+      - main
 
 permissions:
   contents: read
@@ -24,20 +24,20 @@ jobs:
     steps:
       # 1️⃣ Checkout repository
       - name: Checkout repository
-        uses: actions/checkout@v4   # latest stable version
+        uses: actions/checkout@v4
 
       # 2️⃣ Setup GitHub Pages environment
       - name: Setup Pages
-        uses: actions/configure-pages@v5   # latest stable version
+        uses: actions/configure-pages@v5
 
       # 3️⃣ Upload static site
       - name: Upload static site
-        uses: actions/upload-pages-artifact@v4   # latest stable version
+        uses: actions/upload-pages-artifact@v4   # ✅ must be upload-pages-artifact@v4
         with:
           path: .   # your HTML files are in the repo root
 
       # 4️⃣ Deploy to GitHub Pages
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v4   # latest stable version
+        uses: actions/deploy-pages@v4
 
