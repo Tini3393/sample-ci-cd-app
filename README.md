@@ -43,3 +43,4 @@ Want to contribute to act? Awesome! Check out the [contributing guidelines](CONT
 # trigger
 # trigger workflow
 # trigger workflow
+# trigger GitHub Pages workflow
