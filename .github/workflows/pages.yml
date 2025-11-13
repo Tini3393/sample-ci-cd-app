@@ -1,8 +1,3 @@
-steps:
-  # 1️⃣ Checkout repository
-  - name: Checkout repository
-    uses: actions/checkout@v4   # latest stable version
-
   # 2️⃣ Setup GitHub Pages environment
   - name: Setup Pages
     uses: actions/configure-pages@v5   # latest stable version
