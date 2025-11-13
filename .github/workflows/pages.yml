@@ -1,0 +1,33 @@
+name: Deploy Static HTML to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      # 1. Checkout repository
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      # 2. Ensure site folder exists
+      - name: Prepare site folder
+        run: mkdir -p public
+
+      # 3. Configure GitHub Pages
+      - name: Configure Pages
+        uses: actions/configure-pages@v5
+
+      # 4. Upload Pages artifact
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./public
+
+      # 5. Deploy to Pages
+      - name: Deploy to GitHub Pages
+        uses: actions/deploy-pages@v1
