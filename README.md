@@ -40,3 +40,4 @@ Want to contribute to act? Awesome! Check out the [contributing guidelines](CONT
 - Run unit tests with `make test`
 - Build and install: `make install`
 # trigger workflow
+# trigger
