@@ -30,7 +30,8 @@ jobs:
       - name: Upload static site
         uses: actions/upload-pages-artifact@v3
         with:
-          path: public
+          path: dist   # change to '.' if your HTML files are in the root, or 'public' if in public/
+
   deploy:
     needs: build
     runs-on: ubuntu-latest
