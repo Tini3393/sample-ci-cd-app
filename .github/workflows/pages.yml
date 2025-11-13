@@ -24,20 +24,21 @@ jobs:
     steps:
       # 1️⃣ Checkout repository
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v4   # latest stable checkout action
 
       # 2️⃣ Setup GitHub Pages environment
       - name: Setup Pages
-        uses: actions/configure-pages@v5
+        uses: actions/configure-pages@v5   # latest stable configure-pages action
 
       # 3️⃣ Upload static site (updated to v4)
       - name: Upload static site
-        uses: actions/upload-pages-artifact@v4
+        uses: actions/upload-pages-artifact@v4   # latest stable upload-pages-artifact
+
         with:
           path: .   # your HTML files are in the repo root
 
       # 4️⃣ Deploy to GitHub Pages
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v4
+        uses: actions/deploy-pages@v4   # latest stable deploy-pages action
 
