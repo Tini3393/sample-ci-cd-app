@@ -41,3 +41,4 @@ Want to contribute to act? Awesome! Check out the [contributing guidelines](CONT
 - Build and install: `make install`
 # trigger workflow
 # trigger
+# trigger workflow
